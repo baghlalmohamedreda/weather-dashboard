@@ -1,6 +1,6 @@
 function Settings(){
     return (<>
-    <h1>HELLO ON FAVORITES SETTINGS </h1>
+    <h1>HELLO ON  SETTINGS PAGE </h1>
 
     </>)
 }
