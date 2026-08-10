@@ -9,9 +9,17 @@ import weatherdata from "../data/weather.json"
 import "./Dashboard.css"
 function Dashboard(){
     const [weather,setWeather]=useState(null)
+    const [error,setError]=useState("")
     function handlesearch(cityname){
         const result =weatherdata.find(i=>i.city.toLowerCase()===cityname.toLowerCase())
-        setWeather(result||null)
+        if(result){
+            setError("")
+            setWeather(result)
+        }
+        else{
+            setError("ville inatrouvable")
+            setWeather(null)
+        }
     }
     return(
         <div className="dashboard">
@@ -19,14 +27,30 @@ function Dashboard(){
                 <Searchbar onHandlesearch={handlesearch} />
                 <CurrentLocation />
             </header>
-           <main className="dashboard-content">
-            <CurrentWeather weather ={weather} />
-            <WeatherDetails />
-            <HourlyForecast />
-            <Forecast />
-            </main>  
-        </div>
+            <main className="dashboard-content">
+                {error &&(
+                     <div className="error-state">
+                         <h2>Ville introuvable</h2>
+                         <p> Nous n'avons trouvé aucune ville correspondant à votre recherche.
+                             Vérifiez l'orthographe puis réessayez.
+                         </p>
+                     </div>
+                )}
+          { weather && (
+           <>
+               <div className="top-section">
+                   <CurrentWeather weather={weather} />
+                   <WeatherDetails weather={weather} />
+               </div>
 
+               <div className="forecast-section">
+                   <HourlyForecast />
+                   <Forecast />
+               </div>
+            </>
+        )}
+            </main>
+        </div>
     )
 }
 export default Dashboard
