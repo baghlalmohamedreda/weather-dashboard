@@ -1,11 +1,6 @@
 import "./WeatherDetails.css";
 
 function WeatherDetails({ weather }) {
-
-    if (!weather) {
-        return null;
-    }
-
     return (
         <section className="weather-details">
 
