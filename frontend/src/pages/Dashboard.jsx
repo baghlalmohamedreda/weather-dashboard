@@ -8,10 +8,10 @@ import { useState } from "react"
 import weatherdata from "../data/weather.json"
 import "./Dashboard.css"
 function Dashboard(){
-    const [weathers,setWeathers]=useState(null)
+    const [weather,setWeather]=useState(null)
     function handlesearch(cityname){
         const result =weatherdata.find(i=>i.city.toLowerCase()===cityname.toLowerCase())
-        setWeathers(result||null)
+        setWeather(result||null)
     }
     return(
         <div className="dashboard">
@@ -20,7 +20,7 @@ function Dashboard(){
                 <CurrentLocation />
             </header>
            <main className="dashboard-content">
-            <CurrentWeather weathers ={weathers} />
+            <CurrentWeather weather ={weather} />
             <WeatherDetails />
             <HourlyForecast />
             <Forecast />
