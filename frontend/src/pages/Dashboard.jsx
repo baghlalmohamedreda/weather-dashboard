@@ -20,10 +20,14 @@ function Dashboard(){
                 <CurrentLocation />
             </header>
            <main className="dashboard-content">
-            <CurrentWeather weather ={weather} />
-            <WeatherDetails />
-            <HourlyForecast />
-            <Forecast />
+               <div className="top-section">
+                    <CurrentWeather weather={weather} />
+                    <WeatherDetails weather={weather} />
+               </div>
+               <div className="forecast-section">
+                   <HourlyForecast />
+                   <Forecast />
+               </div>
             </main>  
         </div>
 
