@@ -4,16 +4,23 @@ import Forecast from "../components/Forecast/Forecast"
 import CurrentWeather from "../components/CurrentWeather/CurrentWeather"
 import HourlyForecast from "../components/HourlyForecast/HourlyForecast"
 import WeatherDetails from "../components/WeatherDetails/WeatherDetails"
+import { useState } from "react"
+import weatherdata from "../data/weather.json"
 import "./Dashboard.css"
 function Dashboard(){
+    const [weathers,setWeathers]=useState(null)
+    function handlesearch(cityname){
+        const result =weatherdata.find(i=>i.city.toLowerCase()===cityname.toLowerCase())
+        setWeathers(result||null)
+    }
     return(
         <div className="dashboard">
             <header className="header">
-                <Searchbar />
+                <Searchbar onHandlesearch={handlesearch} />
                 <CurrentLocation />
             </header>
            <main className="dashboard-content">
-            <currentWeather />
+            <CurrentWeather weathers ={weathers} />
             <WeatherDetails />
             <HourlyForecast />
             <Forecast />

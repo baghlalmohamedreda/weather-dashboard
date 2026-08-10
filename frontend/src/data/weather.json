@@ -1,0 +1,22 @@
+[{
+    "city":"paris",
+    "temperateur":28,
+    "condition":"sunny",
+    "humidity":45,
+    "wind":12
+},
+{
+    "city":"tanger",
+    "temperateur":30,
+    "condition":"sunny",
+    "humidity":40,
+    "wind":11
+},
+    {
+        "city":"casa",
+        "temperateur":31,
+        "condition":"sunny",
+        "humidity":35,
+        "wind":9
+    }
+]
