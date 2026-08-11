@@ -1,0 +1,31 @@
+[{
+    "city": "Paris",
+  "temperature": 28,
+  "description": "Sunny",
+  "icon": "☀️",
+  "feelsLike": 30,
+  "humidity": 45,
+  "wind": 12,
+  "pressure": 1015
+},
+{
+   "city": "tanger",
+   "temperature": 30,
+   "description": "Sunny",
+   "icon": "☀️",
+   "feelsLike": 30,
+  "humidity": 45,
+  "wind": 12,
+  "pressure": 1015
+},
+    {
+        "city": "casablanca",
+        "temperature": 31,
+        "description": "Sunny",
+        "icon": "☀️",
+        "feelsLike": 30,
+        "humidity": 45,
+        "wind": 12,
+        "pressure": 1015
+    }
+]
