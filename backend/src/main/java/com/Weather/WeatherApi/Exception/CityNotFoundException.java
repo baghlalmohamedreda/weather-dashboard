@@ -1,0 +1,7 @@
+package com.Weather.WeatherApi.Exception;
+
+public class CityNotFoundException extends RuntimeException{
+    public CityNotFoundException(String city){
+        super("City Not Found: "+city);
+    }
+}
