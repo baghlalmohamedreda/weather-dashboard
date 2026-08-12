@@ -14,7 +14,7 @@ function WeatherDetails({ weather }) {
 
                 <div className="detail-content">
                     <h3>Feels Like</h3>
-                    <p>{Math.round(weather.feelsLikeCelsius)}°C</p>
+                    <p>{Math.round(weather.current.feelsLikeCelsius)}°C</p>
                 </div>
             </div>
 
@@ -23,7 +23,7 @@ function WeatherDetails({ weather }) {
 
                 <div className="detail-content">
                     <h3>Humidity</h3>
-                    <p>{weather.humidity}%</p>
+                    <p>{weather.current.humidity}%</p>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@ function WeatherDetails({ weather }) {
 
                 <div className="detail-content">
                     <h3>Wind</h3>
-                    <p>{weather.windSpeedKmh.toFixed(1)} km/h</p>
+                    <p>{weather.current.windSpeedKmh.toFixed(1)} km/h</p>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@ function WeatherDetails({ weather }) {
 
                 <div className="detail-content">
                     <h3>Pressure</h3>
-                    <p>{weather.pressureHpa} hPa</p>
+                    <p>{weather.current.pressureHpa} hPa</p>
                 </div>
             </div>
 
