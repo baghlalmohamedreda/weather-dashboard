@@ -4,13 +4,24 @@ import Forecast from "../components/Forecast/Forecast"
 import CurrentWeather from "../components/CurrentWeather/CurrentWeather"
 import HourlyForecast from "../components/HourlyForecast/HourlyForecast"
 import WeatherDetails from "../components/WeatherDetails/WeatherDetails"
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import { getsearchweather } from "../services/service"
 import "./Dashboard.css"
 function Dashboard(){
-    const [weather,setWeather]=useState(null)
+    const [weather, setWeather] = useState(() => {
+    const savedWeather = localStorage.getItem("weather");
+
+    return savedWeather ? JSON.parse(savedWeather) : null;
+});
     const [error,setError]=useState("")
     const [loading,setLoading]=useState(false)
+    useEffect(() => {
+    if (weather) {
+        localStorage.setItem("weather", JSON.stringify(weather));
+    } else {
+        localStorage.removeItem("weather");
+    }
+}, [weather])
     async function handlesearch(cityname) {
     try {
         setLoading(true);
@@ -38,7 +49,7 @@ function Dashboard(){
     return(
         <div className="dashboard">
             <header className="header">
-                <Searchbar onHandlesearch={handlesearch} />
+                <Searchbar onHandlesearch={handlesearch} weather={weather} />
                 <CurrentLocation />
             </header>
             <main className="dashboard-content">
