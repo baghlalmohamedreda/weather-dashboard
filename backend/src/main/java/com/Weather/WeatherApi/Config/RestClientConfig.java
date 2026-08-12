@@ -14,4 +14,11 @@ public class RestClientConfig {
                 .baseUrl(weatherApiProperties.getUrl())
                 .build();
     }
+
+    @Bean
+    public RestClient forecastRestClient(WeatherApiProperties weatherApiProperties){
+        return RestClient.builder()
+                .baseUrl(weatherApiProperties.getForecastUrl())
+                .build();
+    }
 }
