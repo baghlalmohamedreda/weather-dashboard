@@ -15,14 +15,9 @@ function CurrentWeather({ weather }) {
                 {Math.round(weather.temperatureCelsius)}°C
             </h1>
 
-            <p className="description">
-                {weather.description}
-            </p>
-
             <h2 className="city">
                 {weather.city}, {weather.country}
             </h2>
-
         </section>
     );
 }
