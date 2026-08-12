@@ -1,11 +1,16 @@
 import "./WeatherDetails.css";
-
+import {
+  Thermometer,
+  Droplets,
+  Wind,
+  Gauge
+} from "lucide-react";
 function WeatherDetails({ weather }) {
     return (
         <section className="weather-details">
 
             <div className="detail-card">
-                <span className="detail-icon">🌡️</span>
+                <Thermometer className="detail-icon" size={26} strokeWidth={2} />
 
                 <div className="detail-content">
                     <h3>Feels Like</h3>
@@ -14,7 +19,7 @@ function WeatherDetails({ weather }) {
             </div>
 
             <div className="detail-card">
-                <span className="detail-icon">💧</span>
+                <Droplets className="detail-icon" size={26} strokeWidth={2} />
 
                 <div className="detail-content">
                     <h3>Humidity</h3>
@@ -23,7 +28,7 @@ function WeatherDetails({ weather }) {
             </div>
 
             <div className="detail-card">
-                <span className="detail-icon">💨</span>
+                <Wind className="detail-icon" size={26} strokeWidth={2} />
 
                 <div className="detail-content">
                     <h3>Wind</h3>
@@ -32,7 +37,7 @@ function WeatherDetails({ weather }) {
             </div>
 
             <div className="detail-card">
-                <span className="detail-icon">🌬️</span>
+                <Gauge className="detail-icon" size={26} strokeWidth={2} />
 
                 <div className="detail-content">
                     <h3>Pressure</h3>
