@@ -14,6 +14,9 @@ public class WeatherApiProperties {
     @NotBlank(message = "weather.api.url must not be blank")
     private String url;
 
+    @NotBlank(message = "weather.api.forecast-url must not be blank")
+    private String forecastUrl;
+
     public String getKey() {
         return key;
     }
@@ -29,4 +32,13 @@ public class WeatherApiProperties {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public String getForecastUrl() {
+        return forecastUrl;
+    }
+
+    public void setForecastUrl(String forecastUrl) {
+        this.forecastUrl = forecastUrl;
+    }
+
 }
