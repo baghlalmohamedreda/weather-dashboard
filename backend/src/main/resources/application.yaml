@@ -5,3 +5,4 @@ weather:
   api:
     key: 3fa3e10b9ac5131aa74a51b7857cb757
     url: https://api.openweathermap.org/data/2.5/weather
+    forecast-url: https://api.openweathermap.org/data/2.5/forecast

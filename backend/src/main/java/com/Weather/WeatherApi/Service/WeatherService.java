@@ -23,18 +23,13 @@ public class WeatherService {
         this.weatherApiProperties = weatherApiProperties;
     }
 
-    public WeatherResponse getCurrentWeatherByCity(String city){
-        OpenWeatherResponse rawResponse = fetchFromOpenWeather(city);
-        return mapToWeatherResponse(rawResponse);
-    }
-
-    private OpenWeatherResponse fetchFromOpenWeather(String city){
+    public OpenWeatherResponse fetchRawWeather(String city) {
         try {
             return weatherRestClient.get()
                     .uri(uriBuilder -> uriBuilder
-                            .queryParam("q",city)
-                            .queryParam("appid",weatherApiProperties.getKey())
-                            .queryParam("units","metric")
+                            .queryParam("q", city)
+                            .queryParam("appid", weatherApiProperties.getKey())
+                            .queryParam("units", "metric")
                             .build())
                     .retrieve()
                     .body(OpenWeatherResponse.class);
@@ -44,12 +39,11 @@ public class WeatherService {
         }
     }
 
-    private WeatherResponse mapToWeatherResponse(OpenWeatherResponse raw){
+    public WeatherResponse.CurrentConditions mapToCurrentConditions(OpenWeatherResponse raw) {
         OpenWeatherResponse.Weather primaryCondition = raw.weather()[0];
         ZoneId systemZone = ZoneId.systemDefault();
-        return  new WeatherResponse(
-                raw.name(),
-                raw.sys().country(),
+
+        return new WeatherResponse.CurrentConditions(
                 raw.main().temp(),
                 raw.main().feels_like(),
                 raw.main().humidity(),
@@ -57,8 +51,8 @@ public class WeatherService {
                 raw.main().pressure(),
                 primaryCondition.description(),
                 primaryCondition.icon(),
-                unixToLocalTime(raw.sys().sunrise(),systemZone),
-                unixToLocalTime(raw.sys().sunrise(),systemZone)
+                unixToLocalTime(raw.sys().sunrise(), systemZone),
+                unixToLocalTime(raw.sys().sunset(), systemZone)
         );
     }
 
@@ -66,13 +60,9 @@ public class WeatherService {
         return metersPerSecond * 3.6;
     }
 
-    private LocalTime unixToLocalTime(long unixSeconds ,ZoneId zoneId){
+    private LocalTime unixToLocalTime(long unixSeconds, ZoneId zoneId) {
         return Instant.ofEpochSecond(unixSeconds)
                 .atZone(zoneId)
                 .toLocalTime();
     }
-
-
-
-
 }
