@@ -9,7 +9,7 @@ function WeatherDetails({ weather }) {
 
                 <div className="detail-content">
                     <h3>Feels Like</h3>
-                    <p>{weather.feelsLike}°C</p>
+                    <p>{Math.round(weather.feelsLikeCelsius)}°C</p>
                 </div>
             </div>
 
@@ -23,20 +23,20 @@ function WeatherDetails({ weather }) {
             </div>
 
             <div className="detail-card">
-                <span className="detail-icon">🌬️</span>
+                <span className="detail-icon">💨</span>
 
                 <div className="detail-content">
                     <h3>Wind</h3>
-                    <p>{weather.wind} km/h</p>
+                    <p>{weather.windSpeedKmh.toFixed(1)} km/h</p>
                 </div>
             </div>
 
             <div className="detail-card">
-                <span className="detail-icon">🌡️</span>
+                <span className="detail-icon">🌬️</span>
 
                 <div className="detail-content">
                     <h3>Pressure</h3>
-                    <p>{weather.pressure} hPa</p>
+                    <p>{weather.pressureHpa} hPa</p>
                 </div>
             </div>
 

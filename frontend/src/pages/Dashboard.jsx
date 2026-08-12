@@ -5,22 +5,36 @@ import CurrentWeather from "../components/CurrentWeather/CurrentWeather"
 import HourlyForecast from "../components/HourlyForecast/HourlyForecast"
 import WeatherDetails from "../components/WeatherDetails/WeatherDetails"
 import { useState } from "react"
-import weatherdata from "../data/weather.json"
+import { getsearchweather } from "../services/service"
 import "./Dashboard.css"
 function Dashboard(){
     const [weather,setWeather]=useState(null)
     const [error,setError]=useState("")
-    function handlesearch(cityname){
-        const result =weatherdata.find(i=>i.city.toLowerCase()===cityname.toLowerCase())
-        if(result){
-            setError("")
-            setWeather(result)
-        }
-        else{
-            setError("ville inatrouvable")
-            setWeather(null)
-        }
+    const [loading,setLoading]=useState(false)
+    async function handlesearch(cityname) {
+    try {
+        setLoading(true);
+        setError("");
+
+        console.log("🔵 Recherche lancée :", cityname);
+
+        const data = await getsearchweather(cityname);
+
+        console.log("🟢 Data reçue dans Dashboard :", data);
+
+        setWeather(data);
+
+    } catch (error) {
+
+        console.error("🔴 Erreur :", error);
+
+        setWeather(null);
+        setError(error.message);
+
+    } finally {
+        setLoading(false);
     }
+}
     return(
         <div className="dashboard">
             <header className="header">
@@ -28,6 +42,13 @@ function Dashboard(){
                 <CurrentLocation />
             </header>
             <main className="dashboard-content">
+             {loading && (
+                  <div className="loading-state">
+                    <p>Chargement de la météo...</p>
+                  </div>
+    )}
+
+
                 {error &&(
                      <div className="error-state">
                          <h2>Ville introuvable</h2>
@@ -36,7 +57,7 @@ function Dashboard(){
                          </p>
                      </div>
                 )}
-          { weather && (
+          { !loading && weather && (
            <>
                <div className="top-section">
                    <CurrentWeather weather={weather} />
@@ -44,7 +65,7 @@ function Dashboard(){
                </div>
 
                <div className="forecast-section">
-                   <HourlyForecast />
+                   <HourlyForecast  />
                    <Forecast />
                </div>
             </>

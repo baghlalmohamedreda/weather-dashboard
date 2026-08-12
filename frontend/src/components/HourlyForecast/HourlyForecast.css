@@ -1,0 +1,71 @@
+.hourly-forecast {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.hourly-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: .5rem;
+
+    scrollbar-width: thin;
+}
+
+.hourly-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.hourly-container::-webkit-scrollbar-thumb {
+    background: #cfd8dc;
+    border-radius: 10px;
+}
+
+.hour-card {
+    min-width: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .8rem;
+
+    padding: 1rem;
+
+    background: #f8f9fa;
+    border-radius: 16px;
+
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.hour-card:hover {
+    transform: translateY(-5px);
+    background: #eef6ff;
+    box-shadow: 0 8px 16px rgba(0,0,0,.12);
+}
+
+.hour-time {
+    font-size: .95rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.hour-icon {
+    font-size: 2.2rem;
+}
+
+.hour-temp {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1976d2;
+}
