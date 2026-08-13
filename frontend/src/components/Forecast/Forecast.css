@@ -1,0 +1,93 @@
+.forecast {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+
+.forecast-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 25px;
+}
+
+/* Header et lignes utilisent EXACTEMENT la même grille */
+.forecast-header,
+.forecast-card {
+    display: grid;
+    grid-template-columns: 90px 110px 1fr 1fr;
+    align-items: center;
+}
+
+.forecast-header {
+    padding: 0 20px 14px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+
+    font-weight: 700;
+    color: #64748b;
+}
+
+.forecast-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.forecast-card {
+    padding: 18px 20px;
+    background: #f8fbff;
+    border-radius: 18px;
+    transition: .3s;
+}
+
+.forecast-card:hover {
+    background: #eef6ff;
+    transform: translateY(-3px);
+}
+
+.forecast-day {
+    font-size: 18px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.forecast-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast-min,
+.forecast-max {
+    text-align: center;
+    font-size: 18px;
+}
+
+.forecast-min {
+    color: #64748b;
+}
+
+.forecast-max {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+@media (max-width:768px) {
+
+    .forecast-header,
+    .forecast-card {
+        grid-template-columns: 70px 80px 1fr 1fr;
+    }
+
+    .forecast {
+        padding: 18px;
+    }
+
+    .forecast-title {
+        font-size: 24px;
+    }
+}

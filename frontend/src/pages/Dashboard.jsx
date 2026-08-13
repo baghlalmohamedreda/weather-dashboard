@@ -74,7 +74,7 @@ function Dashboard(){
 
                <div className="forecast-section">
                    <HourlyForecast weather={weather}  />
-                   <Forecast />
+                   <Forecast weather={weather} />
                </div>
             </>
         )}
