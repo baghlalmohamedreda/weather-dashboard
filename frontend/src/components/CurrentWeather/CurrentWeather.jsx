@@ -1,13 +1,13 @@
 import "./CurrentWeather.css";
-
+import WeatherIcons from "../WeatherIcons/WeatherIcons";
 function CurrentWeather({ weather }) {
     return (
         <section className="current-weather">
 
             <div className="weather-icon">
-                <img
-                    src={`https://openweathermap.org/img/wn/${weather.current.icon}@2x.png`}
-                    alt={weather.current.description}
+                <WeatherIcons
+                code={weather.current.icon}
+                size={60}
                 />
             </div>
 

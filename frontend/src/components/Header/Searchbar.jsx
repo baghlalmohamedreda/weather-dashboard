@@ -15,7 +15,7 @@ function Searchbar({onHandlesearch,weather}){
     return (
         <div className="search-container">
             <div className="searchbar">
-                <input onChange ={e=>{setCity(e.target.value); setErr("")} } value={weather.city} type = "text" placeholder="Search for a city..." />
+                <input onChange ={e=>{setCity(e.target.value); setErr("")} }  type = "text" placeholder="Search for a city..." />
                 <button onClick={handleclick} >🔍</button>
             </div>
               {err && <span className="error">{err}</span>}

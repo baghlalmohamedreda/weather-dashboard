@@ -27,17 +27,14 @@ function Dashboard(){
         setLoading(true);
         setError("");
 
-        console.log("🔵 Recherche lancée :", cityname);
 
         const data = await getsearchweather(cityname);
 
-        console.log("🟢 Data reçue dans Dashboard :", data);
+        console.log(" Data reçue dans Dashboard :", data);
 
         setWeather(data);
 
     } catch (error) {
-
-        console.error("🔴 Erreur :", error);
 
         setWeather(null);
         setError(error.message);
@@ -76,7 +73,7 @@ function Dashboard(){
                </div>
 
                <div className="forecast-section">
-                   <HourlyForecast  />
+                   <HourlyForecast weather={weather}  />
                    <Forecast />
                </div>
             </>
