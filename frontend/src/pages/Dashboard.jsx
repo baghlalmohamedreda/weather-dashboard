@@ -1,5 +1,4 @@
 import Searchbar from "../components/Header/Searchbar"
-import CurrentLocation from "../components/Header/CurrentLocation"
 import Forecast from "../components/Forecast/Forecast"
 import CurrentWeather from "../components/CurrentWeather/CurrentWeather"
 import HourlyForecast from "../components/HourlyForecast/HourlyForecast"
@@ -47,7 +46,6 @@ function Dashboard(){
         <div className="dashboard">
             <header className="header">
                 <Searchbar onHandlesearch={handlesearch} weather={weather} />
-                <CurrentLocation />
             </header>
             <main className="dashboard-content">
              {loading && (
@@ -74,7 +72,7 @@ function Dashboard(){
 
                <div className="forecast-section">
                    <HourlyForecast weather={weather}  />
-                   <Forecast />
+                   <Forecast weather={weather} />
                </div>
             </>
         )}
