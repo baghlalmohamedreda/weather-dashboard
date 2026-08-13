@@ -1,71 +1,146 @@
 .hourly-forecast {
     background: #ffffff;
-    border-radius: 20px;
-    padding: 1.5rem;
+    border-radius: 24px;
+    padding: 1.8rem;
     margin-top: 2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
 .section-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #333;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
     margin-bottom: 1.5rem;
 }
 
-.hourly-container {
+.hourly-list {
     display: flex;
-    gap: 1rem;
+    gap: 18px;
     overflow-x: auto;
-    padding-bottom: .5rem;
-
-    scrollbar-width: thin;
+    overflow-y: hidden;
+    padding: 5px 5px 15px;
+    scroll-behavior: smooth;
 }
 
-.hourly-container::-webkit-scrollbar {
+.hourly-list::-webkit-scrollbar {
     height: 8px;
 }
 
-.hourly-container::-webkit-scrollbar-thumb {
-    background: #cfd8dc;
-    border-radius: 10px;
+.hourly-list::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 999px;
 }
 
-.hour-card {
-    min-width: 100px;
+.hourly-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.hourly-card {
+    flex: 0 0 105px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .8rem;
+    justify-content: center;
 
-    padding: 1rem;
+    gap: 10px;
 
-    background: #f8f9fa;
-    border-radius: 16px;
+    padding: 18px 12px;
+
+    border-radius: 18px;
+
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+
+    border: 1px solid #edf2f7;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
 
     transition: all .3s ease;
+
     cursor: pointer;
 }
 
-.hour-card:hover {
-    transform: translateY(-5px);
+.hourly-card:hover {
+
+    transform: translateY(-8px);
+
     background: #eef6ff;
-    box-shadow: 0 8px 16px rgba(0,0,0,.12);
+
+    box-shadow: 0 14px 28px rgba(59,130,246,.18);
 }
 
-.hour-time {
+.hourly-card p {
+
+    margin: 0;
+
     font-size: .95rem;
+
     font-weight: 600;
-    color: #555;
+
+    color: #64748b;
 }
 
-.hour-icon {
-    font-size: 2.2rem;
+.hourly-card img {
+
+    width: 65px;
+
+    height: 65px;
+
+    object-fit: contain;
+
+    transition: transform .3s;
 }
 
-.hour-temp {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #1976d2;
+.hourly-card:hover img {
+
+    transform: scale(1.12);
+}
+
+.hourly-card h3 {
+
+    margin: 0;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    color: #2563eb;
+}
+
+@media (max-width:768px){
+
+    .hourly-forecast{
+
+        padding:1.2rem;
+    }
+
+    .section-title{
+
+        font-size:1.5rem;
+    }
+
+    .hourly-list{
+
+        gap:12px;
+    }
+
+    .hourly-card{
+
+        flex:0 0 90px;
+
+        padding:15px 10px;
+    }
+
+    .hourly-card img{
+
+        width:55px;
+
+        height:55px;
+    }
+
+    .hourly-card h3{
+
+        font-size:1.05rem;
+    }
+
 }
