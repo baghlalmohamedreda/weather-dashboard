@@ -19,19 +19,15 @@
 }
 
 .logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2b6cb0;
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.logo span{
-    color:#1e293b;
+.logo-icon{
+    font-size:32px;
+    color:#4DA8FF;
 }
-
 .nav-links{
     display:flex;
     gap:35px;
