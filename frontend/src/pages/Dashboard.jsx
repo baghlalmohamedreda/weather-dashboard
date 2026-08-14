@@ -9,7 +9,6 @@ import "./Dashboard.css"
 function Dashboard(){
     const [weather, setWeather] = useState(() => {
     const savedWeather = localStorage.getItem("weather");
-
     return savedWeather ? JSON.parse(savedWeather) : null;
 });
     const [error,setError]=useState("")
@@ -25,19 +24,11 @@ function Dashboard(){
     try {
         setLoading(true);
         setError("");
-
-
         const data = await getsearchweather(cityname);
-
-        console.log(" Data reçue dans Dashboard :", data);
-
         setWeather(data);
-
     } catch (error) {
-
         setWeather(null);
         setError(error.message);
-
     } finally {
         setLoading(false);
     }
@@ -53,8 +44,6 @@ function Dashboard(){
                     <p>Chargement de la météo...</p>
                   </div>
     )}
-
-
                 {error &&(
                      <div className="error-state">
                          <h2>Ville introuvable</h2>

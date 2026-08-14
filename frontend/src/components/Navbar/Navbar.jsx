@@ -1,10 +1,12 @@
 import {NavLink} from "react-router-dom"
 import "./Navbar.css"
+import { WiDayCloudy } from "react-icons/wi";
 function Navbar(){
     return (
        <nav className="navbar">
-            <div className="logo">
-        🌤       <span>Weather Dashboard</span>
+           <div className="logo">
+               <WiDayCloudy className="logo-icon" />
+               <span>Weather Dashboard</span>
             </div>
 
             <div className="nav-links">
@@ -15,13 +17,6 @@ function Navbar(){
             </div>
     </nav>
 
-
-
-
     )
-
-
-
-
 }
 export default Navbar
