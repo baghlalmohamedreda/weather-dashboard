@@ -38,7 +38,17 @@
         inset 0 8px 18px rgba(255,255,255,.8),
         0 15px 35px rgba(59,130,246,.18);
 }
+.favorite-btn{
+    border:none;
+    background:none;
+    cursor:pointer;
+    color:#ff4d6d;
+    transition:.3s;
+}
 
+.favorite-btn:hover{
+    transform:scale(1.15);
+}
 .temperature {
     margin: 0;
 
@@ -48,6 +58,23 @@
 
     color: #0f172a;
 }
+.favorite{
+    margin-top: 12px;
+    color:#b8b8b8;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.favorite:hover{
+    color:#ff4d6d;
+    transform:scale(1.15);
+}
+
+.favorite.active{
+    color:#ff4d6d;
+    fill:#ff4d6d;
+}
+
 
 .description {
     margin-top: 12px;
