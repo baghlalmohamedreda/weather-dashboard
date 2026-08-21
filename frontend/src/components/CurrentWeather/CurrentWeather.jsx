@@ -2,12 +2,15 @@ import "./CurrentWeather.css";
 import { Heart } from "lucide-react"
 import WeatherIcons from "../WeatherIcons/WeatherIcons";
 import { useState } from "react";
-import {addcity,removefavorite } from "../../services/favorites";
+import {addcity,getfavorites,removefavorite } from "../../services/favorites";
 function CurrentWeather({ weather }) {
-    const [isfavorite,setIsfavorite]=useState(false)
+    const [isfavorite,setIsfavorite]=useState(()=>{
+        const favorites=getfavorites()
+        return favorites.some((e)=>e.city===weather.city)
+    })
     function togglefavorite(city) {
     if (isfavorite) {
-        removefavorite(city.city);
+        removefavorite(city);
         setIsfavorite(false);
     } else {
         addcity(city);

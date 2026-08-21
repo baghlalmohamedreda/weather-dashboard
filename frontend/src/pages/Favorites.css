@@ -58,7 +58,7 @@
     box-sizing: border-box;
 
     border-radius: 20px;
-
+    cursor: pointer;
     background:
         linear-gradient(
             145deg,
