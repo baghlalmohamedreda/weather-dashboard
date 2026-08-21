@@ -3,8 +3,13 @@ import { getfavorites, removefavorite } from "../services/favorites";
 import "./Favorites.css";
 import CurrentWeather from "../components/CurrentWeather/CurrentWeather";
 import {BiTrash} from "react-icons/bi"
+import { useNavigate } from "react-router-dom";
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
+  const navigate=useNavigate()
+  function handlenavigate(cityname){
+    navigate(`/?city=${cityname}`)
+  }
 
   useEffect(() => {
     loadFavorites();
@@ -37,8 +42,8 @@ function Favorites() {
 
       <div className="favorites-grid">
         {favorites.map((city) => (
-          <div className="favorite-card" key={city.city}>
-            <div className="favorite-header">
+          <div className="favorite-card" key={city.city} onClick={()=>handlenavigate(city.city)}>
+            <div className="favorite-header" >
               <div>
                 <h2>{city.city}</h2>
                 <p>{city.country}</p>
@@ -46,7 +51,8 @@ function Favorites() {
 
               <button
                 className="remove-btn"
-                onClick={() => handleRemove(city)}
+                onClick={(e) =>{ e.stopPropagation();
+                   handleRemove(city)}}
               >
                 <BiTrash />
               </button>

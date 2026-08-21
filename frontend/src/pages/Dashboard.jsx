@@ -4,6 +4,7 @@ import CurrentWeather from "../components/CurrentWeather/CurrentWeather"
 import HourlyForecast from "../components/HourlyForecast/HourlyForecast"
 import WeatherDetails from "../components/WeatherDetails/WeatherDetails"
 import { useState ,useEffect} from "react"
+import { useSearchParams } from "react-router-dom"
 import { getsearchweather } from "../services/service"
 import "./Dashboard.css"
 function Dashboard(){
@@ -20,6 +21,15 @@ function Dashboard(){
         localStorage.removeItem("weather");
     }
 }, [weather])
+const [SearchParams]=useSearchParams()
+const city=SearchParams.get("city")
+useEffect(()=>{
+    if(city){
+        handlesearch(city)
+    }
+
+},[city])
+
     async function handlesearch(cityname) {
     try {
         setLoading(true);
