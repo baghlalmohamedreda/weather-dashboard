@@ -2,11 +2,18 @@ import "./CurrentWeather.css";
 import { Heart } from "lucide-react"
 import WeatherIcons from "../WeatherIcons/WeatherIcons";
 import { useState } from "react";
+import {addcity,removefavorite } from "../../services/favorites";
 function CurrentWeather({ weather }) {
     const [isfavorite,setIsfavorite]=useState(false)
-    function togglefavorte(){
-        setIsfavorite(!isfavorite)
+    function togglefavorite(city) {
+    if (isfavorite) {
+        removefavorite(city.city);
+        setIsfavorite(false);
+    } else {
+        addcity(city);
+        setIsfavorite(true);
     }
+}
     return (
         <section className="current-weather">
 
@@ -25,7 +32,7 @@ function CurrentWeather({ weather }) {
             <button
                 className="favorite-btn"
             >
-                <Heart size={22} className={isfavorite? "favorite active" :"active"} onClick={togglefavorte} />
+                <Heart size={22} className={isfavorite? "favorite active" :"active"} onClick={()=>togglefavorite(weather)} />
             </button>
         </section>
     );

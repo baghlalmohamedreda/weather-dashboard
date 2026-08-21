@@ -1,5 +1,4 @@
 
-
 export function getfavorites (){
     return JSON.parse(localStorage.getItem("favoritescitys"))||[]
 
@@ -12,10 +11,9 @@ export function addcity(city){
     }
     citys.push(city)
     localStorage.setItem("favoritescitys",JSON.stringify(citys))
-
 }
-export function removecity(city){
+export function removefavorite(city){
     const citys=getfavorites()
-    const updatecitys=citys.filter(e=>e.city!==city)
+    const updatecitys=citys.filter(e=>e.city!==city.city)
     localStorage.setItem("favoritescitys",JSON.stringify(updatecitys))
 }

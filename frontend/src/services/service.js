@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:8080/api/weather";
-
 export async function getsearchweather(city) {
     const url = `${API_URL}?city=${encodeURIComponent(city)}`;
     const response = await fetch(url);
