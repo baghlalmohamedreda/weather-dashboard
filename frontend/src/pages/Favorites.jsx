@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getFavorites, removeFavorite } from "../services/favorites";
+import { getfavorites, removefavorite } from "../services/favorites";
 import "./Favorites.css";
-
+import CurrentWeather from "../components/CurrentWeather/CurrentWeather";
+import {BiTrash} from "react-icons/bi"
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
@@ -10,11 +11,11 @@ function Favorites() {
   }, []);
 
   function loadFavorites() {
-    setFavorites(getFavorites());
+    setFavorites(getfavorites());
   }
 
-  function handleRemove(cityName) {
-    removeFavorite(cityName);
+  function handleRemove(city) {
+    removefavorite(city);
     loadFavorites();
   }
 
@@ -30,7 +31,6 @@ function Favorites() {
       </section>
     );
   }
-
   return (
     <section className="favorites">
       <h1>Favorite Cities</h1>
@@ -46,25 +46,13 @@ function Favorites() {
 
               <button
                 className="remove-btn"
-                onClick={() => handleRemove(city.city)}
+                onClick={() => handleRemove(city)}
               >
-                ❤️
+                <BiTrash />
               </button>
             </div>
+            <div className="card-weather-body"><CurrentWeather weather={city} /></div>
 
-            <img
-              src={`https://openweathermap.org/img/wn/${city.current.icon}@2x.png`}
-              alt={city.current.description}
-            />
-
-            <h1>{city.current.temperatureCelsius}°C</h1>
-
-            <p>{city.current.description}</p>
-
-            <div className="favorite-details">
-              <span>💧 {city.current.humidity}%</span>
-              <span>🌬 {city.current.windSpeedKmh} km/h</span>
-            </div>
           </div>
         ))}
       </div>
