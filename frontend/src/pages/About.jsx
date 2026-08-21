@@ -8,8 +8,6 @@ import {
 function About() {
     return (
         <section className="about">
-
-            {/* Hero */}
             <div className="about-hero">
 
                 <div className="hero-content">
